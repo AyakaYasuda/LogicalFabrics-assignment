@@ -29,23 +29,29 @@ const convertObjToArr = (obj) => {
   return arr
 }
 
-convertObjToArr({
-  foo: { num: 2 },
-  bar: { num: -1 },
-  buz: { num: null },
-  qux: {},
-  quux: null,
-})
+console.log(
+  'solution 1:',
+  convertObjToArr({
+    foo: { num: 2 },
+    bar: { num: -1 },
+    buz: { num: null },
+    qux: {},
+    quux: null,
+  })
+)
 
 // solution 2 - with lodash
 const convertObjToArr2 = (obj) => {
   return _.filter(obj, (value) => !_.isNull(value) && _.isNumber(value['num']))
 }
 
-convertObjToArr2({
-  foo: { num: 2 },
-  bar: { num: -1 },
-  buz: { num: null },
-  qux: {},
-  quux: null,
-})
+console.log(
+  'solution 2:',
+  convertObjToArr2({
+    foo: { num: 2 },
+    bar: { num: -1 },
+    buz: { num: null },
+    qux: {},
+    quux: null,
+  })
+)
