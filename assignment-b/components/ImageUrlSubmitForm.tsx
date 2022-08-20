@@ -19,19 +19,29 @@ const ImageUrlSubmitForm = () => {
   const submitFormHandler = () => {
     setAnalyzing(true)
 
-    axios.get(`${baseUrl}<${inputUrl}>`).then((response) => {
-      console.log(response.data)
-      dispatch({ type: 'fetch', payload: response.data })
-      setAnalyzing(false)
-    })
+    axios
+      .get(`${baseUrl}${inputUrl}`)
+      .then((response) => {
+        dispatch({ type: 'fetch', payload: response.data })
+        setAnalyzing(false)
+        setInputUrl('')
+      })
+      .catch((err) => {
+        setAnalyzing(false)
+      })
   }
 
   return (
     <>
-      <TextField id='image-url' label='Image URL' onChange={inputUrlHandler} />
+      <TextField
+        id='image-url'
+        label='Image URL'
+        value={inputUrl}
+        onChange={inputUrlHandler}
+      />
       <Button
         variant='contained'
-        disabled={analyzing}
+        disabled={analyzing || !inputUrl}
         onClick={submitFormHandler}>
         {analyzing ? 'ANALYZING...' : 'ANALYZE'}
       </Button>

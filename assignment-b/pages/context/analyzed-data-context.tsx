@@ -22,16 +22,28 @@ export const createAnalyzedDataCtx = <StateType, ActionType>(
   return [analyzedDataCtx, Provider] as const
 }
 
-const initialState = { data: [] }
+interface initialStateInterface {
+  boundingPoly: null
+  confidence: number
+  description: string
+  locale: string
+  locations: []
+  mid: string
+  properties: []
+  score: number
+  topicality: number
+}
+
+const initialState: initialStateInterface[] = []
 type State = typeof initialState
-type Action = { type: 'fetch', payload: typeof initialState }
+type Action = { type: 'fetch'; payload: typeof initialState }
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'fetch':
-      return { data: action.payload.data }
+      return action.payload
     default:
-      return { data: state.data }
+      return state
   }
 }
 

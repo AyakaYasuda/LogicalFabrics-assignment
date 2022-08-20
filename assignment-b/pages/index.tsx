@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 import { Fragment } from 'react'
 import Head from 'next/head'
+
 import ImageUrlSubmitForm from '../components/ImageUrlSubmitForm'
+import AnalysisResult from '../components/AnalysisResult'
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <h1>Image URL Analyzer</h1>
       <ImageUrlSubmitForm />
+      <AnalysisResult />
     </Fragment>
   )
 }
