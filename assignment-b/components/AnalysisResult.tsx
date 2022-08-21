@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { analyzedDataCtx } from '../pages/context/analyzed-data-context'
+import { analyzedDataCtx } from '../context/analyzed-data-context'
 
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'

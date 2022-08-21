@@ -1,6 +1,6 @@
 import React, { Reducer, Dispatch, createContext, useReducer } from 'react'
 
-export const createAnalyzedDataCtx = <StateType, ActionType>(
+const createAnalyzedDataCtx = <StateType, ActionType>(
   reducer: Reducer<StateType, ActionType>,
   initialState: StateType
 ) => {

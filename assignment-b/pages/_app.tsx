@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { AnalyzedDataProvider } from './context/analyzed-data-context'
+import { AnalyzedDataProvider } from '../context/analyzed-data-context'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

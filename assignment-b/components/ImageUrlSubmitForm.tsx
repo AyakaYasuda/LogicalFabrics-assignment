@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { analyzedDataCtx } from '../pages/context/analyzed-data-context'
+import { analyzedDataCtx } from '../context/analyzed-data-context'
 import axios from 'axios'
 
 import TextField from '@mui/material/TextField'
@@ -10,8 +10,8 @@ const baseUrl = process.env.NEXT_PUBLIC_API_ENDPOINT
 
 const ImageUrlSubmitForm = () => {
   const { dispatch } = useContext(analyzedDataCtx)
-  const [inputUrl, setInputUrl] = useState<string>()
-  const [analyzing, setAnalyzing] = useState<boolean>()
+  const [inputUrl, setInputUrl] = useState<string>('')
+  const [analyzing, setAnalyzing] = useState<boolean>(false)
 
   const inputUrlHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setInputUrl(e.target.value)
