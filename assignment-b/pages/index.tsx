@@ -11,9 +11,11 @@ const Home: NextPage = () => {
       <Head>
         <title>Assignment B</title>
       </Head>
-      <h1>Image URL Analyzer</h1>
-      <ImageUrlSubmitForm />
-      <AnalysisResult />
+      <div className='container mx-auto p-5 text-center'>
+        <h1 className='my-5'>Image URL Analyzer</h1>
+        <ImageUrlSubmitForm />
+        <AnalysisResult />
+      </div>
     </Fragment>
   )
 }

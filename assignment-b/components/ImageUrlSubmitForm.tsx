@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import FindInPageIcon from '@mui/icons-material/FindInPage'
 
 const baseUrl = process.env.NEXT_PUBLIC_API_ENDPOINT
 
@@ -32,20 +33,36 @@ const ImageUrlSubmitForm = () => {
   }
 
   return (
-    <>
+    <div className='flex items-center justify-center gap-x-4'>
       <TextField
+        required
         id='image-url'
         label='Image URL'
         value={inputUrl}
         onChange={inputUrlHandler}
+        InputLabelProps={{ shrink: true }}
+        sx={{
+          width: 300,
+          '& .MuiFormLabel-root': {
+            fontSize: 16,
+          },
+          '& .MuiInputBase-root': {
+            height: 45,
+          },
+        }}
       />
       <Button
         variant='contained'
+        size='large'
+        color='primary'
         disabled={analyzing || !inputUrl}
         onClick={submitFormHandler}>
-        {analyzing ? 'ANALYZING...' : 'ANALYZE'}
+        <>
+          <FindInPageIcon sx={{ marginRight: '2px' }} />
+          {analyzing ? 'ANALYZING...' : 'ANALYZE'}
+        </>
       </Button>
-    </>
+    </div>
   )
 }
 
