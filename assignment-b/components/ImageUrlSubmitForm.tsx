@@ -23,7 +23,11 @@ const ImageUrlSubmitForm = () => {
     setAnalyzing(true)
 
     axios
-      .get(`${baseUrl}${inputUrl}`)
+      .get(`${baseUrl}`, {
+        params: {
+          imageUrl: inputUrl,
+        },
+      })
       .then((response) => {
         dispatch({ type: 'fetch', payload: response.data })
         setAnalyzing(false)
