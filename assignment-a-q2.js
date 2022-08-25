@@ -46,3 +46,15 @@ const sumValues2 = (arr) => {
 console.log(
   sumValues2([{ foo: 1 }, { bar: 2 }, { foo: -2 }, { foo: 3, bar: 4 }])
 )
+
+// answer example
+const fn = (input) =>
+  input.reduce((res, v) => {
+    _.keys(v).forEach((k) => {
+      res[k] |= 0
+      res[k] += v[k]
+    })
+    return res
+  }, {})
+
+console.log(fn([{ foo: 1 }, { bar: 2 }, { foo: -2 }, { foo: 3, bar: 4 }]))

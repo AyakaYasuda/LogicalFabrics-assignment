@@ -55,3 +55,23 @@ console.log(
     quux: null,
   })
 )
+
+// answer example
+const fn = (input) => {
+  return _(input)
+    .filter(_.isObject)
+    .filter((v) => _.has(v, 'num'))
+    .filter((v) => _.isNumber(v.num))
+    .value()
+}
+
+console.log(
+  'answer:',
+  fn({
+    foo: { num: 2 },
+    bar: { num: -1 },
+    buz: { num: null },
+    qux: {},
+    quux: null,
+  })
+)
